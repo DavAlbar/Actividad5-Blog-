@@ -1,0 +1,34 @@
+<div>
+  <h2>Publicar una nueva noticia</h2>
+  <form (ngSubmit)="agregarPublicacion()">
+    <label>
+      Título:
+      <input [(ngModel)]="nuevaPublicacion.titulo" name="titulo" required />
+    </label>
+    <br />
+    <label>
+      Imagen (URL):
+      <input [(ngModel)]="nuevaPublicacion.imagen" name="imagen" required />
+    </label>
+    <br />
+    <label>
+      Texto:
+      <textarea
+        [(ngModel)]="nuevaPublicacion.texto"
+        name="texto"
+        required
+      ></textarea>
+    </label>
+    <br />
+    <button type="submit">Publicar</button>
+  </form>
+
+  <h2>Listado de noticias</h2>
+  <div *ngFor="let publicacion of publicaciones">
+    <h3>{{ publicacion.titulo }}</h3>
+    <img [src]="publicacion.imagen" alt="{{ publicacion.titulo }}" />
+    <p>{{ publicacion.texto }}</p>
+    <small>{{ publicacion.fecha }}</small>
+    <hr />
+  </div>
+</div>
